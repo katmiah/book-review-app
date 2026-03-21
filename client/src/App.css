@@ -1,0 +1,63 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: #f4f3f2;
+  margin: 0;
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+div {
+  box-sizing: border-box;
+}
+.book-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.book-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.book-cover {
+  max-width: 300px;
+}
+
+button {
+  margin-right: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+.star {
+  font-size: 22px;
+  cursor: pointer;
+  color: #ccc;
+  transition: 0.2s;
+}
+
+.star.active {
+  color: goldenrod;
+}
+.star:hover {
+  transform: scale(1.2);
+}
