@@ -88,6 +88,8 @@ div {
   margin-bottom: 1rem;
   max-width: 400px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 250px;
+  height: auto;
 }
 
 button {
@@ -113,4 +115,57 @@ button {
 }
 .star:hover {
   transform: scale(1.2);
+}
+.deleteButton {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid rgb(231, 50, 50);
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 6px #333;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: rgb(245, 207, 207);
+  transform: scale(1.2);
+  box-shadow: 0 0 2px #111;
+  transition: 0.3s;
+}
+svg {
+  color: rgb(231, 50, 50);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+
+button:focus svg {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.deleteButton span {
+  width: 150px;
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  color: rgb(231, 50, 50);
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:focus {
+  width: 150px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+button:focus span {
+  opacity: 1;
+  transition: 0.3s;
 }

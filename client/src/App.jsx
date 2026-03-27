@@ -61,13 +61,29 @@ function App() {
     }
   }
 
+  async function deleteBook(id, deletedRating) {
+    try {
+      const response = await fetch(`http://localhost:3001/books/${id}`, {
+        method: "DELETE",
+      });
+      setBooks((currentBooks) => currentBooks.filter((book) => book.id !== id));
+    } catch (error) {
+      console.error("Error deleting review", error);
+    }
+  }
+
   return (
     <div>
       <Navbar />
 
       <div className="book-list">
         {books.map((book) => (
-          <Bookcard key={book.id} book={book} updateRating={updateRating} />
+          <Bookcard
+            key={book.id}
+            book={book}
+            updateRating={updateRating}
+            deleteBook={deleteBook}
+          />
         ))}
       </div>
 
