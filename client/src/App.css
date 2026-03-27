@@ -23,7 +23,64 @@ div {
   gap: 1rem;
   flex-wrap: wrap;
 }
+.book-form {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
+/* Row for title + author */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Each field */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.stars-container {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.book-form button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #53bda5;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book-form button:hover {
+  background: #437a6d;
+}
+
+.stars {
+  padding-bottom: 10px;
+}
 .book-card {
   background: white;
   border-radius: 12px;
@@ -31,10 +88,6 @@ div {
   margin-bottom: 1rem;
   max-width: 400px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.book-cover {
-  max-width: 300px;
 }
 
 button {
@@ -56,7 +109,7 @@ button {
 }
 
 .star.active {
-  color: goldenrod;
+  color: #d49137;
 }
 .star:hover {
   transform: scale(1.2);

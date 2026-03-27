@@ -5,7 +5,7 @@ export default function Bookcard({ book, updateRating }) {
     <div className="book-card">
       <h3>{book.title}</h3>
       <p>{book.author}</p>
-      <img className="book-cover" src={book.img} alt="No image found" />
+      <p>"{book.description}"</p>
 
       <Stars
         rating={book.rating}
