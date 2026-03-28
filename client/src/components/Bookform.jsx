@@ -33,6 +33,7 @@ export default function Bookform({ addBook }) {
             <input
               type="text"
               value={title}
+              maxLength="50"
               onChange={(e) => setTitle(e.target.value)}
               required
             />
@@ -43,6 +44,7 @@ export default function Bookform({ addBook }) {
             <input
               type="text"
               value={author}
+              maxLength="25"
               onChange={(e) => setAuthor(e.target.value)}
               required
             />

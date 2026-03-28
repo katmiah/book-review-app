@@ -1,27 +1,57 @@
+import { useEffect, useRef } from "react";
 import Stars from "./Stars";
 import { useState } from "react";
 
 export default function Bookcard({ book, updateRating, deleteBook }) {
   const [confirming, setConfirming] = useState(false);
-  function handleDelete() {
+  const deleteButtonRef = useRef(null);
+
+  function handleDelete(e) {
+    e.stopPropagation();
     if (!confirming) {
       setConfirming(true);
-    } else {
-      deleteBook(book.id);
+      return;
     }
+    deleteBook(book.id);
   }
+
+  useEffect(() => {
+    if (!confirming) return;
+    const timeoutId = setTimeout(() => setConfirming(false), 3000);
+
+    function handleClickOutside(e) {
+      if (
+        deleteButtonRef.current &&
+        !deleteButtonRef.current.contains(e.target)
+      ) {
+        setConfirming(false);
+      }
+    }
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [confirming]);
+
   return (
     <div className="book-card">
       <h3>{book.title}</h3>
       <p>{book.author}</p>
-      <p>"{book.description}"</p>
+      <p className="description">"{book.description}"</p>
 
       <Stars
         rating={book.rating}
         onRate={(star) => updateRating(book.id, star)}
       />
-      <button className="deleteButton" onClick={handleDelete}>
-        {confirming ? <span>Confirm Delete</span> : <span></span>}
+      <button
+        ref={deleteButtonRef}
+        className={`deleteButton ${confirming ? "confirming" : ""}`}
+        onClick={handleDelete}
+      >
+        <span>{confirming ? "Confirm Delete?" : ""}</span>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"

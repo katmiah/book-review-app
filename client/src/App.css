@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #f4f3f2;
@@ -9,9 +13,14 @@ h1 {
   margin-bottom: 1.5rem;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+h3 {
+  word-break: break-word;
+  margin-bottom: 5px;
+}
 
 p {
   margin-bottom: 5px;
+  word-break: break-word;
 }
 
 div {
@@ -42,6 +51,7 @@ div {
 .form-group {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   flex: 1;
   margin-bottom: 15px;
 }
@@ -78,6 +88,10 @@ div {
   background: #437a6d;
 }
 
+.book-form button:focus {
+  background: #437a6d;
+}
+
 .stars {
   padding-bottom: 10px;
 }
@@ -86,10 +100,9 @@ div {
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 1rem;
-  max-width: 400px;
+  max-width: 250px;
+  min-width: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  width: 250px;
-  height: auto;
 }
 
 button {
@@ -116,6 +129,7 @@ button {
 .star:hover {
   transform: scale(1.2);
 }
+
 .deleteButton {
   position: relative;
   width: 50px;
@@ -127,15 +141,16 @@ button {
   box-shadow: 0 0 6px #333;
   overflow: hidden;
   transition: 0.3s;
+  color: rgb(231, 50, 50);
 }
 
-button:hover {
+.deleteButton:hover {
   background-color: rgb(245, 207, 207);
-  transform: scale(1.2);
+  transform: scale(1.08);
   box-shadow: 0 0 2px #111;
-  transition: 0.3s;
 }
-svg {
+
+.deleteButton svg {
   color: rgb(231, 50, 50);
   position: absolute;
   top: 50%;
@@ -144,28 +159,27 @@ svg {
   transition: 0.3s;
 }
 
-button:focus svg {
-  opacity: 0;
-  transition: 0.3s;
-}
-
 .deleteButton span {
-  width: 150px;
   position: absolute;
-  opacity: 0;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  color: rgb(231, 50, 50);
+  width: 120px;
+  opacity: 0;
+  color: inherit;
   font-weight: 600;
   transition: 0.3s;
 }
 
-button:focus {
-  width: 150px;
-  height: 50px;
-  transition: 0.3s;
+.deleteButton.confirming {
+  width: 125px;
+  border-radius: 20px;
 }
 
-button:focus span {
+.deleteButton.confirming svg {
+  opacity: 0;
+}
+
+.deleteButton.confirming span {
   opacity: 1;
-  transition: 0.3s;
 }
